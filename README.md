@@ -12,6 +12,28 @@ Flatten is implemented using a single line in a Corefile that will resolve the C
 - `TO`: Name to overwrite the A and AAAA records from
 - `DNSIP:PORT`: The DNS server and port to resolve the `TO` records from
 
+## Compilation
+The easy way to consume this plugin is by adding the following on `plugin.cfg` after the `cache` plugi, and recompile it as detailed on [coredns.io](https://coredns.io/2017/07/25/compile-time-enabling-or-disabling-plugins/#build-with-compile-time-configuration-file).
+
+```
+<snip>
+cache:cache
+flatten:github.com/litobro/flatten
+rewrite:rewrite
+<snip>
+```
+
+After this you can compile coredns by:
+```
+go generate
+go build
+```
+
+Or you can use the makefile:
+```
+make
+```
+
 ## Implementation
 The best docs are to read `flatten.go` and view the implementation. It is fewer than 100 lines of code.
 
@@ -81,3 +103,4 @@ example.org.            86400   IN      TXT     "6r4wtj10lt2hw0zhyhk7cgzzffhjp7f
 ## TODO
  - Write unit tests
  - Allow optional parameters and more parameters
+ - Create pre-built docker image with Flatten added to plugins
