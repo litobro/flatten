@@ -1,6 +1,6 @@
 module github.com/litobro/flatten
 
-go 1.22.2
+go 1.21.8
 
 require (
 	github.com/coredns/caddy v1.1.1
