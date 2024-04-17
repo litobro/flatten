@@ -30,13 +30,8 @@ func (f Flatten) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg)
 	a.SetReply(r)
 	a.Authoritative = true
 
-	// Resolve the target CNAME A records
-	if err := f.resolveAorAAAA(f.Target, dns.TypeA, a, ctx); err != nil {
-		return dns.RcodeServerFailure, err
-	}
-
-	// Resolve the target CNAME AAAA records
-	if err := f.resolveAorAAAA(f.Target, dns.TypeAAAA, a, ctx); err != nil {
+	// Resolve the target CNAME records
+	if err := f.resolveAorAAAA(f.Target, state.QType(), a, ctx); err != nil {
 		return dns.RcodeServerFailure, err
 	}
 
