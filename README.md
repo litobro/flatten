@@ -12,6 +12,9 @@ Flatten is implemented using a single line in a Corefile that will resolve the C
 - `TO`: Name to overwrite the A and AAAA records from
 - `DNSIP:PORT`: The DNS server and port to resolve the `TO` records from
 
+### Docker Image
+A docker image that includes support for this plugin is available: [litobro/coredns-flatten](https://github.com/litobro/docker-coredns-flatten)
+
 ## Compilation
 The easy way to consume this plugin is by adding the following on `plugin.cfg` after the `cache` plugi, and recompile it as detailed on [coredns.io](https://coredns.io/2017/07/25/compile-time-enabling-or-disabling-plugins/#build-with-compile-time-configuration-file).
 
@@ -103,4 +106,4 @@ example.org.            86400   IN      TXT     "6r4wtj10lt2hw0zhyhk7cgzzffhjp7f
 ## TODO
  - Write unit tests
  - Allow optional parameters and more parameters
- - Create pre-built docker image with Flatten added to plugins
+ - Create CI/CD pipeline for docker image and security patch maintenance
