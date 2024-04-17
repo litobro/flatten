@@ -1,5 +1,5 @@
 # flatten
-Flatten attempts to provide a minimal CNAME flattening implementation that is RFC compliant in accordance with the implementation provided by [cloudflare](https://developers.cloudflare.com/dns/cname-flattening/).
+Flatten attempts to provide a minimal CNAME flattening implementation for [CoreDNS](https://coredns.io) that is RFC compliant in accordance with the implementation provided by [cloudflare](https://developers.cloudflare.com/dns/cname-flattening/).
 
 This is a better option than using the `rewrite` plugin as it avoids records such as MX, TXT, SOA and others from being resolved to the rewritten domain.
 
